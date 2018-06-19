@@ -1,19 +1,20 @@
 - defaults:
-  link:
-    relink: true
+    link:
+        create: true
+        relink: true
 
 - clean: ['~']
 
 - link:
-  ~/dotfiles: ''
-  ~/.tmux.conf: tmux.conf
-  ~/.vim: vim
-  ~/.config/nvim/init.vim:
-    create: true
-    relink: true
-    path: vim/vimrc
-  ~/.bashrc: bashrc
-  ~/.bash_profile: bash_profile
+    ~/.tmux.conf: tmux.conf
+    ~/.vim: vim
+    ~/.config/nvim/init.vim:
+      create: true
+      relink: true
+      path: vim/vimrc
+    ~/.bashrc: bashrc
+    ~/.bash_profile: bash_profile
+
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    - [git submodule update --init --recursive, Installing submodules]
 
