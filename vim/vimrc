@@ -1,0 +1,179 @@
+" Setting up Plug - A minimalist Vim plugin manager
+if has('nvim')
+    " Set up for neovim
+    if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+      silent !curl -sfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+	     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall | source ~/.vimrc
+    endif
+    tnoremap <ESC> <C-\><C-n>
+    autocmd BufWinEnter, WinEnter term://* startinsert
+    autocmd BufLeave term://* stopinsert
+else
+    if empty(glob('~/.vim/autoload/plug.vim'))
+      silent !curl -sfLo ~/.vim/autoload/plug.vim --create-dirs
+	     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall | source ~/.vimrc
+    endif
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'rhysd/vim-clang-format' " clang formatter
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'valloric/youcompleteme' " super-extra autocomplete engine, huge pain to
+" install but wonderful if/when it works
+Plug 'ervandew/supertab' " allow tab to trigger autocomplete
+"if has('nvim')
+"  Plug 'mfulz/cscope.nvim'
+"endif
+"Plug 'autozimu/LanguageClient-neovim', {
+"  \ 'branch': 'next',
+"  \ 'do': 'bash install.sh',
+"  \ }
+call plug#end()
+
+" leader shortcuts
+" jk is escape
+"inoremap jk <esc>
+let mapleader="," " leader is comma
+
+" ycm stuff
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+let g:ycm_always_populate_location_list=1 " enable location list of compiler errors
+let g:ycm_open_loclist_on_ycm_diags=0 " don't open location list but populate it
+" Run :YcmDiags to fill locationlist
+
+" enable autoformatting
+" autocmd FileType c ClangFormatAutoEnable
+" use .clang-format file
+let g:clang_format#detect_style_file=1
+let g:clang_format#enable_fallback_style='Google'
+inoremap <F7> <C-O>:ClangFormat<CR>
+noremap <F7> :ClangFormat<CR>
+
+set clipboard=unnamed " make copy paste work
+set runtimepath^=~/.vim/plugin
+" add bundle for ctrlp
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlPMixed' " set default search to files, buffers and MRU
+"let g:ctrlp_working_path_mode='r' " sets working directory to be nearest 
+" ancestor with .git file
+" sike using fzf now
+map <C-p> :FZF<CR>
+map <leader><C-f> :Buffers<CR>
+map <leader><C-h> :History<CR>
+" custom: map C-i to fzf current word
+"map <C-i> :FZF<CR> <C-R>=expand("<cword>")
+"map <C-i> :call fzf#run({'options': '-q ' . shellescape(expand('<cword>')), 'down':'30%'})<CR>
+
+"colorscheme sol " colorscheme?
+syntax enable
+
+"Tab settings
+set tabstop=2 " number of spaces per tab
+set softtabstop=2 " number of spaces in tab when editing
+set shiftwidth=2 " make > work
+set expandtab " tabs are spaces sorry about it
+set autoindent
+
+" UI
+set number " show line numbers
+set showcmd " show last command
+" set cursorline " highlight current line
+filetype indent on " file-type specific indentation
+set wildmenu " visual autocomplete
+set lazyredraw " redraw only when necessary
+set showmatch " highlight matching brackets & parens
+set colorcolumn=80 " highlight column 80
+set mouse=a "enable mouse support
+
+" search
+set incsearch " incremental search on
+set hlsearch " highlight matches, turn off with :nohlsearch
+set ignorecase " ignore case
+set smartcase " don't ignore if I'm using mix of upper & lower?
+
+" folding
+set foldenable " enable folding
+set foldlevelstart=10 " open most folds by default
+set foldnestmax=10 " 10 nested fold max
+" space open/closes folds
+nnoremap <space> za
+set foldmethod=indent " fold based on indent level
+
+" movement
+nnoremap j gj
+nnoremap k gk
+
+" split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" natural split opening
+set splitbelow
+set splitright
+
+" move to beginning/end of line
+"nnoremap B ^
+"nnoremap E $
+
+" $/^ off
+"nnoremap $ <nop>
+"nnoremap ^ <nop>
+
+
+" edit vimrc and load vimrc bindings
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" enable fzf
+set rtp+=/usr/local/opt/fzf
+
+" C editor stuff
+set exrc " execute local .vimrcs
+set secure " limit local .vimrcs from shell commands, writing to files etc.
+set path+=~/fw-bison/**
+set path+="~/fw-bison/fb_libs/"
+set path+="~/fw-bison/fw-bluetooth/include/fw-bluetooth/interface/"
+set path+="~/fw-bison/fw-bluetooth/include/"
+
+" change autocomplete to only include .h, .c
+"autocmd BufWritePost <buffer> make " auto-save before make
+set makeprg=inv\ $* 
+
+" cscope
+" cscope navigation
+"map <C-j> :cnext<CR>
+"map <C-k> :cprevious<CR>
+"map <C-h> :colder<CR>
+"map <C-l> :cnewer<CR>
+"nmap <Leader>n :QFix<CR>
+
+" reoad file if it changes
+set autoread
+
+" edit statusline
+set laststatus=2
+set statusline=%f " full filepath
+set statusline+=%= " left/right separator
+set statusline+=%c,%l/%L " cursor location
+
+" set buffer swaps
+nnoremap <F5> :buffers<CR>:buffer<Space>
+
+" move swp, backup and undo
+set directory=~/.vim/.swp//
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+
+" get cscope
+"let g:cscope_dir='~/fw-bison' " directory for cscope.out & cscope.files
+"let g:cscope_map_keys=1 " map default keys on startup
+"let g:cscope_update_on_start=1 " update files on startup
+"CScopeMapKeys
+silent source ~/.vim/plugin/cscope_maps.vim
