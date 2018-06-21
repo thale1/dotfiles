@@ -3,7 +3,7 @@ if has('nvim')
     " Set up for neovim
     if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
       silent !curl -sfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-	     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
       autocmd VimEnter * PlugInstall | source ~/.vimrc
     endif
     tnoremap <ESC> <C-\><C-n>
@@ -12,7 +12,7 @@ if has('nvim')
 else
     if empty(glob('~/.vim/autoload/plug.vim'))
       silent !curl -sfLo ~/.vim/autoload/plug.vim --create-dirs
-	     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
       autocmd VimEnter * PlugInstall | source ~/.vimrc
     endif
 endif
@@ -24,6 +24,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'valloric/youcompleteme' " super-extra autocomplete engine, huge pain to
 " install but wonderful if/when it works
 Plug 'ervandew/supertab' " allow tab to trigger autocomplete
+Plug 'terryma/vim-smooth-scroll' " smooth scrolling
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ntpeters/vim-better-whitespace'         " highlight trailing whitespace
+Plug 'flazz/vim-colorschemes'
+Plug 'tpope/vim-fugitive' " nice vim git commands
 "if has('nvim')
 "  Plug 'mfulz/cscope.nvim'
 "endif
@@ -60,7 +66,7 @@ set runtimepath^=~/.vim/plugin
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
 "let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlPMixed' " set default search to files, buffers and MRU
-"let g:ctrlp_working_path_mode='r' " sets working directory to be nearest 
+"let g:ctrlp_working_path_mode='r' " sets working directory to be nearest
 " ancestor with .git file
 " sike using fzf now
 map <C-p> :FZF<CR>
@@ -70,7 +76,8 @@ map <leader><C-h> :History<CR>
 "map <C-i> :FZF<CR> <C-R>=expand("<cword>")
 "map <C-i> :call fzf#run({'options': '-q ' . shellescape(expand('<cword>')), 'down':'30%'})<CR>
 
-"colorscheme sol " colorscheme?
+let g:airline_theme='sol'
+colorscheme sol " colorscheme?
 syntax enable
 
 "Tab settings
@@ -144,7 +151,7 @@ set path+="~/fw-bison/fw-bluetooth/include/"
 
 " change autocomplete to only include .h, .c
 "autocmd BufWritePost <buffer> make " auto-save before make
-set makeprg=inv\ $* 
+set makeprg=inv\ $*
 
 " cscope
 " cscope navigation
@@ -158,10 +165,13 @@ set makeprg=inv\ $*
 set autoread
 
 " edit statusline
-set laststatus=2
-set statusline=%f " full filepath
-set statusline+=%= " left/right separator
-set statusline+=%c,%l/%L " cursor location
+" vim-airline:
+
+" regular:
+"set laststatus=2
+"set statusline=%f " full filepath
+"set statusline+=%= " left/right separator
+"set statusline+=%c,%l/%L " cursor location
 
 " set buffer swaps
 nnoremap <F5> :buffers<CR>:buffer<Space>

@@ -10,5 +10,9 @@ alias branch="git branch"
 alias glog="git log"
 alias gsu="git sub-update"
 alias ..="cd .."
-
+# for thefuck bash corrector
+eval $(thefuck --alias)
+alias f="fuck"
+# for ccache, don't need it b/c of conda?
+# export PATH="/usr/local/opt/ccache/libexec:$PATH"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
