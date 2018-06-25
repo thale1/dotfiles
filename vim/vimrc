@@ -30,6 +30,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'         " highlight trailing whitespace
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-fugitive' " nice vim git commands
+Plug 'mmisono/viminesweeper' " lol
+"Plug 'ap/vim-buftabline' " buffers as tabs: apparently already an airline
+"feature
 "if has('nvim')
 "  Plug 'mfulz/cscope.nvim'
 "endif
@@ -77,6 +80,17 @@ map <leader><C-h> :History<CR>
 "map <C-i> :call fzf#run({'options': '-q ' . shellescape(expand('<cword>')), 'down':'30%'})<CR>
 
 let g:airline_theme='sol'
+" show buffers as tabs in tabline
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#show_buffers=1
+let g:airline#extensions#tabline#buffer_nr_show=1
+" tab like navigation
+nnoremap <F1> :bprev<CR>
+nnoremap <F2> :bnext<CR>
+inoremap <F1> <C-O>:bprev<CR>
+inoremap <F2> <C-O>:bnext<CR>
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+
 colorscheme sol " colorscheme?
 syntax enable
 

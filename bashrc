@@ -16,3 +16,12 @@ alias f="fuck"
 # for ccache, don't need it b/c of conda?
 # export PATH="/usr/local/opt/ccache/libexec:$PATH"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# History Handling - Erase Duplicates
+export HISTCONTROL=ignoreboth:erasedups
+export HISTFILESIZE=100000
+export HISTSIZE=100000
+
+# Add a quit hook that ensures history is appended
+shopt -s histappend
+PROMPT_COMMAND="history -a"
