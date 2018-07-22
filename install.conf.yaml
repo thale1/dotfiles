@@ -16,6 +16,7 @@
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
     ~/.i3: i3
+    ~/.i3status.conf: i3status.conf
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
