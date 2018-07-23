@@ -74,7 +74,7 @@ bindsym Mod1+Shift+Right move right
 # split in horizontal orientation
 # TODO: what should i put here? changed navigation keys to vim which is now
 # causing me grief
-#bindsym Mod1+- split h
+bindsym Mod1+semicolon split h
 
 # split in vertical orientation
 bindsym Mod1+v split v
@@ -147,6 +147,9 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # set background
 exec feh --bg-scale /home/tom/Pictures/Yosemite.png
+
+# disable borders for single-window case
+hide_edge_borders smart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
