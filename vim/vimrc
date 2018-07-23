@@ -30,6 +30,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'         " highlight trailing whitespace
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-fugitive' " nice vim git commands
+Plug 'tpope/vim-rhubarb'
 Plug 'mmisono/viminesweeper' " lol
 "Plug 'ap/vim-buftabline' " buffers as tabs: apparently already an airline
 "feature
