@@ -74,7 +74,7 @@ bindsym Mod1+Shift+Right move right
 # split in horizontal orientation
 # TODO: what should i put here? changed navigation keys to vim which is now
 # causing me grief
-bindsym Mod1+semicolon split h
+bindsym Mod1+i split h
 
 # split in vertical orientation
 bindsym Mod1+v split v

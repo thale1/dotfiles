@@ -1,1 +1,4 @@
 gianu.zsh
+cypher.zsh
+superjarin.zsh
+kafeitu.zsh

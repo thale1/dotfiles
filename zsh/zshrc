@@ -93,7 +93,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export EDITOR="/usr/local/bin/nvim"
+export EDITOR="/usr/bin/nvim"
 # added by Miniconda2 installer
 #export PATH="/Users/thale/miniconda2/bin:$PATH"
 alias b="source activate Bison"
@@ -102,12 +102,10 @@ alias vim="nvim" # force myself to swap
 alias status="git status"
 alias branch="git branch"
 alias glog="git log"
-alias gsu="git sub-update"
-#alias gcaa="git commit -a --amend"
-#alias ..="cd .."
+alias gsu="git submodule update --init --recursive"
+alias ..="cd .."
 # for thefuck bash corrector
 eval $(thefuck --alias)
-alias f="fuck"
 # add fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #remap caps lock to esc
