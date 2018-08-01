@@ -7,8 +7,15 @@ if has('nvim')
       autocmd VimEnter * PlugInstall | source ~/.vimrc
     endif
     tnoremap <ESC> <C-\><C-n>
+"    tnoremap <C-h> <C-\><C-N><C-w>h
+"    tnoremap <C-j> <C-\><C-N><C-w>j
+"    tnoremap <C-k> <C-\><C-N><C-w>k
+"    tnoremap <C-l> <C-\><C-N><C-w>l
     autocmd BufWinEnter, WinEnter term://* startinsert
     autocmd BufLeave term://* stopinsert
+    augroup TerminalStuff
+      autocmd TermOpen * setlocal nonumber norelativenumber
+    augroup END
 else
     if empty(glob('~/.vim/autoload/plug.vim'))
       silent !curl -sfLo ~/.vim/autoload/plug.vim --create-dirs
