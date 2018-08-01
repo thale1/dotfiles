@@ -104,8 +104,6 @@ alias branch="git branch"
 alias glog="git log"
 alias gsu="git submodule update --init --recursive"
 alias ..="cd .."
-# for thefuck bash corrector
-eval $(thefuck --alias)
 # add fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #remap caps lock to esc
