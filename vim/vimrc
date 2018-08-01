@@ -1,6 +1,7 @@
 " Setting up Plug - A minimalist Vim plugin manager
 if has('nvim')
     " Set up for neovim
+    let g:python_host_prog='/usr/bin/python'
     if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
       silent !curl -sfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
