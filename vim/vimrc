@@ -179,7 +179,7 @@ set path+="~/fw-bison/fw-bluetooth/include/"
 
 " change autocomplete to only include .h, .c
 "autocmd BufWritePost <buffer> make " auto-save before make
-set makeprg=inv\ $*
+" set makeprg=inv\ $*
 
 " cscope
 " cscope navigation
