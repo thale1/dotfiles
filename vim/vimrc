@@ -204,6 +204,11 @@ set autoread
 nnoremap <F5> :buffers<CR>:buffer<Space>
 
 " move swp, backup and undo
+silent !mkdir ~/.vim > /dev/null 2>&1
+silent !mkdir ~/.vim/.swp > /dev/null 2>&1
+silent !mkdir ~/.vim/.undo > /dev/null 2>&1
+silent !mkdir ~/.vim/.backup > /dev/null 2>&1
+
 set directory=~/.vim/.swp//
 set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
