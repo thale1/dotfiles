@@ -7,8 +7,15 @@ if has('nvim')
       autocmd VimEnter * PlugInstall | source ~/.vimrc
     endif
     tnoremap <ESC> <C-\><C-n>
+"    tnoremap <C-h> <C-\><C-N><C-w>h
+"    tnoremap <C-j> <C-\><C-N><C-w>j
+"    tnoremap <C-k> <C-\><C-N><C-w>k
+"    tnoremap <C-l> <C-\><C-N><C-w>l
     autocmd BufWinEnter, WinEnter term://* startinsert
     autocmd BufLeave term://* stopinsert
+    augroup TerminalStuff
+      autocmd TermOpen * setlocal nonumber norelativenumber
+    augroup END
 else
     if empty(glob('~/.vim/autoload/plug.vim'))
       silent !curl -sfLo ~/.vim/autoload/plug.vim --create-dirs
@@ -30,6 +37,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'         " highlight trailing whitespace
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-fugitive' " nice vim git commands
+Plug 'tpope/vim-rhubarb'
 Plug 'mmisono/viminesweeper' " lol
 "Plug 'ap/vim-buftabline' " buffers as tabs: apparently already an airline
 "feature
@@ -73,7 +81,8 @@ set runtimepath^=~/.vim/plugin
 " ancestor with .git file
 " sike using fzf now
 map <C-p> :FZF<CR>
-map <leader><C-f> :Buffers<CR>
+nmap ; :Buffers<CR>
+"map <leader><C-f> :Buffers<CR>
 map <leader><C-h> :History<CR>
 " custom: map C-i to fzf current word
 "map <C-i> :FZF<CR> <C-R>=expand("<cword>")
@@ -100,6 +109,10 @@ set softtabstop=2 " number of spaces in tab when editing
 set shiftwidth=2 " make > work
 set expandtab " tabs are spaces sorry about it
 set autoindent
+
+" Show tabs
+set list
+set listchars=tab:▸-
 
 " UI
 set number " show line numbers
@@ -201,3 +214,6 @@ set backupdir=~/.vim/.backup//
 "let g:cscope_update_on_start=1 " update files on startup
 "CScopeMapKeys
 silent source ~/.vim/plugin/cscope_maps.vim
+
+" Cscope for FZF
+silent source ~/.vim/plugin/fzf_ext.vim
