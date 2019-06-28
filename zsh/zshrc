@@ -7,7 +7,7 @@ export ZSH="/home/thale/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="lambda"
+ZSH_THEME="robbyrussell" #"lambda"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -96,7 +96,6 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR="/usr/local/bin/nvim"
 # added by Miniconda2 installer
 #export PATH="/Users/thale/miniconda2/bin:$PATH"
-alias b="source activate Bison"
 alias vim="nvim" # force myself to swap
 # git stuff
 alias status="git status"
@@ -105,11 +104,10 @@ alias glog="git log"
 alias gsu="git sub-update"
 #alias gcaa="git commit -a --amend"
 #alias ..="cd .."
-# for thefuck bash corrector
-eval $(thefuck --alias)
-alias f="fuck"
 # add fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval `ssh-agent -s`
 
 # User configuration
 HISTSIZE=10000000
@@ -120,8 +118,3 @@ setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a d
 setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
-
-# Conda utils
-if [ -f ~/miniconda2/etc/profile.d/conda.sh ]; then
-  source $HOME/miniconda2/etc/profile.d/conda.sh
-fi

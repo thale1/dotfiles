@@ -214,3 +214,6 @@ silent source ~/.vim/plugin/cscope_maps.vim
 
 " Cscope for FZF
 silent source ~/.vim/plugin/fzf_ext.vim
+
+" Set zsh as default shell
+set shell=/usr/bin/zsh
