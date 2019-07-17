@@ -6,6 +6,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'lambdalisue/vim-fullscreen'
+Plug 'flazz/vim-colorschemes'
+Plug 'ervandew/supertab' " tab triggers autocomplete
+Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 " goyo settings
 "let g:goyo_width=80
@@ -22,6 +25,7 @@ set background=dark             " Use colours that work well on a dark backgroun
 set showmode                    " show the current mode
 set clipboard=unnamed           " set clipboard to unnamed to access the system clipboard under windows
 syntax on                       " turn syntax highlighting on by default
+set encoding=utf-8 " required for YCM
 
 "------------------------------------------------------------------------------
 " Only do this part when compiled with support for autocommands.
@@ -46,7 +50,7 @@ if has("autocmd")
       \ highlight WhiteSpaceEOL ctermbg=red |
       \ match WhiteSpaceEOL /\(^+.*\)\@<=\s\+$/
 
-      autocmd Syntax gitcommit setlocal textwidth=74
+      autocmd Syntax gitcommit setlocal spell textwidth=74
 endif " has("autocmd")
 
 filetype plugin indent on
@@ -58,7 +62,9 @@ set shiftwidth=2
 set expandtab
 " Run current file (as python)
 nnoremap <F5> :w<CR>:!python "%"<CR>
-
+" Run current file but get args
+nnoremap <S-F5> :w<CR>:!python "%"
+let g:python_host_prog='C:\Users\Thale\AppData\Local\Programs\Python\Python37-32\python.exe'
 " leader shortcuts
 let mapleader="," " leader is comma
 
@@ -77,6 +83,7 @@ map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " fzf stuff
 map <C-p> :Buffers<CR>
+map ; :FZF<CR>
 " map leader f to search all buffers for curr word
 map <leader>f :Lines <C-r><C-w><CR>
 imap <leader>f <C-o>:Lines <C-r><C-w><CR>
@@ -161,3 +168,18 @@ set laststatus=2
 set statusline=%f " full filepath
 set statusline+=%= " left/right separator
 set statusline+=%c,%l/%L " cursor location
+
+" set cygwin as default term
+" bash opens in pwd
+"let $CHERE_INVOKING=1
+" Default path for Cygwin 64-bit, change accordingly
+"set shell=C:\cygwin\bin\bash.exe
+
+" Without --login, Cygwin won't mount some directories such as /usr/bin/
+"set shellcmdflag=--login\ -c
+
+" Default value is (, but bash needs "
+"set shellxquote=\"
+
+" Paths will use / instead of \
+"set shellslash
