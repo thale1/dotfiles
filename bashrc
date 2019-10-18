@@ -22,6 +22,8 @@ alias branch="git branch"
 alias glog="git log"
 alias gsu="git sub-update"
 alias ..="cd .."
+alias explorer="explorer.exe"
+alias docker="docker.exe"
 # for thefuck bash corrector
 # for ccache, don't need it b/c of conda?
 # export PATH="/usr/local/opt/ccache/libexec:$PATH"
@@ -35,3 +37,23 @@ export HISTSIZE=100000
 # Add a quit hook that ensures history is appended
 shopt -s histappend
 PROMPT_COMMAND="history -a"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/thale/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/thale/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/thale/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/thale/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

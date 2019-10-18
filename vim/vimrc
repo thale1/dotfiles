@@ -1,6 +1,6 @@
 " Setting up Plug - A minimalist Vim plugin manager
 if has('nvim')
-    let g:python_host_prog='/Users/thale/miniconda2/envs/Bison/bin/python'
+    let g:python_host_prog='/mnt/c/Users/Thale/AppData/Local/Programs/Python/Python37-32/python.exe'
     " Set up for neovim
     if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
       silent !curl -sfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -29,7 +29,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'rhysd/vim-clang-format' " clang formatter
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'valloric/youcompleteme' " super-extra autocomplete engine, huge pain to
+Plug 'valloric/youcompleteme' " super-extra autocomplete engine, huge pain to
 " install but wonderful if/when it works
 Plug 'ervandew/supertab' " allow tab to trigger autocomplete
 Plug 'terryma/vim-smooth-scroll' " smooth scrolling
@@ -40,6 +40,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-fugitive' " nice vim git commands
 Plug 'tpope/vim-rhubarb'
 Plug 'mmisono/viminesweeper' " lol
+Plug 'rust-lang/rust.vim'
 "Plug 'ap/vim-buftabline' " buffers as tabs: apparently already an airline
 "feature
 "if has('nvim')
@@ -63,6 +64,7 @@ let g:ycm_server_log_level = 'debug'
 let g:ycm_always_populate_location_list=1 " enable location list of compiler errors
 let g:ycm_open_loclist_on_ycm_diags=0 " don't open location list but populate it
 " Run :YcmDiags to fill locationlist
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " enable autoformatting
 " autocmd FileType c ClangFormatAutoEnable
@@ -81,8 +83,8 @@ set runtimepath^=~/.vim/plugin
 "let g:ctrlp_working_path_mode='r' " sets working directory to be nearest
 " ancestor with .git file
 " sike using fzf now
-map <C-p> :FZF<CR>
-nmap ; :Buffers<CR>
+map <C-p> :Buffers<CR>
+map ; :FZF<CR>
 "map <leader><C-f> :Buffers<CR>
 map <leader><C-h> :History<CR>
 " custom: map C-i to fzf current word
@@ -197,8 +199,7 @@ set autoread
 "set statusline+=%= " left/right separator
 "set statusline+=%c,%l/%L " cursor location
 
-" set buffer swaps
-nnoremap <F5> :buffers<CR>:buffer<Space>
+nmap <F5> :w<CR>:!cargo run<CR>
 
 " move swp, backup and undo
 set directory=~/.vim/.swp//
