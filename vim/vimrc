@@ -27,7 +27,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'rhysd/vim-clang-format' " clang formatter
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'valloric/youcompleteme' " super-extra autocomplete engine, huge pain to
 " install but wonderful if/when it works
