@@ -9,6 +9,7 @@
     ~/.zshrc: zsh/zshrc
     ~/.tmux.conf: tmux.conf
     ~/.vim: vim
+    ~/.fzf: fzf
     ~/.config/nvim/init.vim:
       create: true
       relink: true
@@ -17,4 +18,5 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - ~/.fzf/install --all
     - vim +PlugInstall
