@@ -75,6 +75,7 @@ noremap <F7> :ClangFormat<CR>
 
 set clipboard=unnamed " make copy paste work
 set runtimepath^=~/.vim/plugin
+set rtp+=~/.fzf
 " add bundle for ctrlp
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
 "let g:ctrlp_map = '<c-p>'

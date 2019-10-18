@@ -19,4 +19,6 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - ~/.fzf/install --all
-    - vim +PlugInstall +qall
+    - source ~/.bashrc
+    - vim +PlugInstall +qall > /dev/null
+    - sleep 1
