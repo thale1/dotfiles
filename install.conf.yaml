@@ -13,9 +13,8 @@
       create: true
       relink: true
       path: vim/vimrc
-    ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-
+    - vim +PlugInstall

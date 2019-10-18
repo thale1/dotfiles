@@ -103,7 +103,7 @@ inoremap <F1> <C-O>:bprev<CR>
 inoremap <F2> <C-O>:bnext<CR>
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
-colorscheme sol " colorscheme?
+silent! colorscheme sol " colorscheme?
 syntax enable
 
 "Tab settings
@@ -200,11 +200,6 @@ set autoread
 "set statusline+=%c,%l/%L " cursor location
 
 nmap <F5> :w<CR>:!cargo run<CR>
-
-" move swp, backup and undo
-set directory=~/.vim/.swp//
-set undodir=~/.vim/.undo//
-set backupdir=~/.vim/.backup//
 
 " get cscope
 "let g:cscope_dir='~/fw-bison' " directory for cscope.out & cscope.files
