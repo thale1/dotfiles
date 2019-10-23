@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/mnt/c/views/barcode-simulator/.git/logs'
-let g:netrw_dirhist_2='/mnt/c/views/barcode-simulator/qrcode-configs'
-let g:netrw_dirhist_3='/mnt/c/views/barcode-simulator/cli-tests/custom-convolution'
-let g:netrw_dirhist_4='/mnt/c/views/barcode-simulator/cli-tests/qzv'
-let g:netrw_dirhist_5='/mnt/c/views/tfrrs_data'

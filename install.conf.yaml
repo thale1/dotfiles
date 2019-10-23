@@ -15,9 +15,14 @@
       relink: true
       path: vim/vimrc
     ~/.bash_profile: bash_profile
+    ~/bin:
+      create: true
+      relink: false
+      path: bin
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - export PATH+=":$HOME/bin"
     - ~/.fzf/install --all
     - source ~/.bashrc
     - vim +PlugInstall +qall > /dev/null

@@ -3,4 +3,5 @@ if [ -f ~/.bashrc ]; then
 fi
 
 sudo mount -t drvfs '\\codebreaker\temp' /mnt/codebreaker
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH+=":$HOME/bin"
+export PATH+=":$HOME/.cargo/bin"
