@@ -15,6 +15,7 @@
       relink: true
       path: vim/vimrc
     ~/.bash_profile: bash_profile
+    ~/.gitignore_global: gitignore_global
     ~/bin:
       create: true
       relink: false
