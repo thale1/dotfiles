@@ -1,0 +1,25 @@
+set realname="Tom Hale"
+set from="justthale@gmail.com"
+set use_from=yes
+set envelope_from=yes
+
+source ~/.mutt/mutt_auth
+set smtp_url="smtp://justthale@smtp.gmail.com:587/"
+set imap_user="justthale@gmail.com"
+set folder="imaps://imap.gmail.com:993/"
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+set postponed="+[Gmail]/Drafts"
+set spoolfile="+INBOX"
+
+bind index G imap-fetch-mail
+set editor="vim"
+set charset="utf-8"
+set record=''
+
+macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
+macro index,pager y "<save-message>=[All]/Gmail Mail<enter><enter>" "Archive"
+
+set header_cache="~/.mutt/cache/headers"
+set message_cachedir="~/.mutt/cache.bodies"

@@ -10,6 +10,7 @@ sudo apt-get update -y
 sudo apt-get install -y \
   zsh \
   tmux \
+  mutt \
   neovim \
   python-neovim \
   python3-neovim \

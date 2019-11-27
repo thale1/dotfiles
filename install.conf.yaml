@@ -5,6 +5,12 @@
 
 - clean: ['~']
 
+- create:
+  - ~/.mutt
+  - ~/.swp
+  - ~/.undo
+  - ~/.backup
+
 - link:
     ~/.zshrc: zsh/zshrc
     ~/.tmux.conf: tmux.conf
@@ -16,6 +22,7 @@
       path: vim/vimrc
     ~/.bash_profile: bash_profile
     ~/.gitignore_global: gitignore_global
+    ~/.muttrc: muttrc
     ~/bin:
       create: true
       relink: false

@@ -201,6 +201,9 @@ set autoread
 
 nmap <F5> :w<CR>:!cargo run<CR>
 
+set directory=~/.swp//,/tmp//
+set undodir=~/.undo//,/tmp//
+set backupdir=~/.backup//,/tmp//
 " get cscope
 "let g:cscope_dir='~/fw-bison' " directory for cscope.out & cscope.files
 "let g:cscope_map_keys=1 " map default keys on startup
