@@ -194,10 +194,10 @@ set autoread
 " vim-airline:
 
 " regular:
-"set laststatus=2
-"set statusline=%f " full filepath
-"set statusline+=%= " left/right separator
-"set statusline+=%c,%l/%L " cursor location
+set laststatus=2
+set statusline=%f " full filepath
+set statusline+=%= " left/right separator
+set statusline+=%c,%l/%L " cursor location
 
 nmap <F5> :w<CR>:!cargo run<CR>
 
